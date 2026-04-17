@@ -132,6 +132,45 @@ main {
     color: #fff;
 }
 
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 8px 44px;
+    background: #fff;
+    border: 2px solid #1ca98e;
+    border-radius: 12px;
+    margin: 18px 32px;
+}
+
+.feature-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    line-height: 1;
+    width: 25px;
+    height: 25px;
+}
+
+.feature-box h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #222;
+    margin: 0;
+}
+
+.feature-box p {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0;
+}
+
 @media (max-width: 900px) {
     .hero.full-banner {
         min-height: 490px;
@@ -140,6 +179,13 @@ main {
     .hero-content {
         margin-left: 3vw;
         padding: 24px 12px;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 16px 24px;
+        margin: 16px 16px;
     }
 }
 
@@ -162,5 +208,24 @@ main {
 
     .hero-content h1 {
         font-size: 2rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 12px 12px;
+        margin: 12px 8px;
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+    }
+
+    .feature-box h3 {
+        font-size: 1rem;
+    }
+
+    .feature-box p {
+        font-size: 0.85rem;
     }
 }
