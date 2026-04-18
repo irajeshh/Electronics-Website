@@ -1,0 +1,111 @@
+<style>
+    .tealbar {
+        background: #1ca98e;
+        color: #fff;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 8px 0;
+        letter-spacing: 0.5px;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 49px 48px 41px 48px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo img {
+        height: 48px;
+    }
+
+    nav {
+        display: flex;
+        gap: 36px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #222;
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    nav a:hover {
+        color: #1ca98e;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .search-bar {
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        outline: none;
+        transition: border 0.2s;
+    }
+
+    .search-bar:focus {
+        border: 1.5px solid #1ca98e;
+    }
+
+    .icon-btn {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: 4px;
+    }
+
+    @media (max-width: 900px) {
+        header {
+            flex-direction: column;
+            gap: 18px;
+            padding: 32px 18px 18px 18px;
+        }
+
+        .logo img {
+            height: 38px;
+        }
+
+        nav {
+            gap: 18px;
+        }
+
+        .header-actions {
+            gap: 8px;
+        }
+    }
+</style>
+<div class="tealbar">
+    SUMMER SALE IS BACK! GET UPTO 40% DISCOUNT ON HEADPHONES!
+</div>
+<header>
+    <div class="logo">
+        <img src="images/home/logo.png" alt="S.R.Tech Logo">
+    </div>
+    <nav>
+        <a href="#">CATEGORIES</a>
+        <a href="#">ABOUT US</a>
+    </nav>
+    <div class="header-actions">
+        <input type="text" class="search-bar" placeholder="Search">
+        <button class="icon-btn" title="Cart">&#128722;</button>
+        <button class="icon-btn" title="Account">&#128100;</button>
+    </div>
+</header>
