@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - S.R.Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/home/logo.png">
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <main>
+        <section class="gadgets-section">
+            <div class="gadgets-header">
+                <span class="gadgets-title">Gadgets</span>
+                <span class="gadgets-arrow">&#8250;</span>
+            </div>
+            <div class="gadgets-grid">
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/headphone cate.png" alt="Headphones">
+                    <div class="gadget-label">Headphones</div>
+                </div>
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/smart watch 7.png" alt="Smart Watch">
+                    <div class="gadget-label">Smart Watch</div>
+                </div>
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/earbuds cate.png" alt="Earbuds">
+                    <div class="gadget-label">Earbuds</div>
+                </div>
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/tablets cate.png" alt="Tablets">
+                    <div class="gadget-label">Tablets</div>
+                </div>
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/apple ipad cate.png" alt="Apple Ipad">
+                    <div class="gadget-label">Apple Ipad</div>
+                </div>
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/speaker cate.png" alt="Speakers">
+                    <div class="gadget-label">Speakers</div>
+                </div>
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/robot 6.png" alt="Robots">
+                    <div class="gadget-label">Robots</div>
+                </div>
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/access cate.png" alt="Accessories">
+                    <div class="gadget-label">Accessories</div>
+                </div>
+                <div class="gadget-card">
+                    <img src="images/categories/gadgets/power bank cate.png" alt="Power Bank">
+                    <div class="gadget-label">Power Bank</div>
+                </div>
+            </div>
+        </section>
+        <!-- Brands Section -->
+        <section class="brands-section">
+            <div class="brands-header">
+                <span class="brands-title">Popular Brands</span>
+                <span class="brands-arrow">&#8250;</span>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <img src="images/categories/brands/anker cate.png" alt="Anker">
+                    <div class="brand-label">Anker</div>
+                </div>
+                <div class="brand-card">
+                    <img src="images/categories/brands/apple cate.png" alt="Apple">
+                    <div class="brand-label">Apple</div>
+                </div>
+                <div class="brand-card">
+                    <img src="images/categories/brands/xiaomi cate.png" alt="Xiaomi">
+                    <div class="brand-label">Xiaomi</div>
+                </div>
+                <div class="brand-card">
+                    <img src="images/categories/brands/samsung cate.png" alt="Samsung">
+                    <div class="brand-label">Samsung</div>
+                </div>
+                <div class="brand-card">
+                    <img src="images/categories/brands/jbl cate.png" alt="JBL">
+                    <div class="brand-label">JBL</div>
+                </div>
+                <div class="brand-card">
+                    <img src="images/categories/brands/oneplus cate.png" alt="Oneplus">
+                    <div class="brand-label">Oneplus</div>
+                </div>
+                <div class="brand-card">
+                    <img src="images/categories/brands/sony cate.png" alt="Sony">
+                    <div class="brand-label">Sony</div>
+                </div>
+                <div class="brand-card">
+                    <img src="images/categories/brands/others cate.png" alt="Others">
+                    <div class="brand-label">Others</div>
+                </div>
+            </div>
+        </section>
+        <!-- More Sections -->
+        <section class="more-section">
+            <div class="more-header">
+                <span class="more-title">Recommended</span>
+                <span class="more-arrow">&#8250;</span>
+            </div>
+            <div class="more-grid">
+                <div class="more-card">
+                    <img src="images/categories/more/new arrival.png" alt="New Arrivals">
+                    <div class="more-label">New Arrivals</div>
+                </div>
+                <div class="more-card">
+                    <img src="images/categories/more/best seller cate.png" alt="Best Sellers">
+                    <div class="more-label">Best Sellers</div>
+                </div>
+                <div class="more-card">
+                    <img src="images/categories/more/super sale cate.png" alt="Super Sale">
+                    <div class="more-label">Super Sale</div>
+                </div>
+            </div>
+        </section>
+        <style>
+            .more-section {
+                max-width: 1200px;
+                margin: 56px auto 0 auto;
+                padding: 0 24px;
+            }
+
+            .more-header {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 32px;
+            }
+
+            .more-title {
+                font-size: 2rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+
+            .more-arrow {
+                font-size: 2.2rem;
+                font-weight: 400;
+                color: #222;
+                margin-top: 2px;
+            }
+
+            .more-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px 32px;
+                justify-items: center;
+            }
+
+            .more-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 240px;
+            }
+
+            .more-card img {
+                width: 240px;
+                height: 240px;
+                object-fit: contain;
+                border-radius: 12px;
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            }
+
+            .more-label {
+                margin-top: 18px;
+                font-size: 2rem;
+                font-weight: 400;
+                text-align: center;
+                color: #222;
+                letter-spacing: 0.2px;
+            }
+
+            @media (max-width: 1100px) {
+                .more-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 800px) {
+                .more-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .more-card {
+                    width: 100%;
+                }
+
+                .more-card img {
+                    width: 100%;
+                    height: auto;
+                    max-width: 260px;
+                    max-height: 260px;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .more-section {
+                    padding: 0 6px;
+                }
+
+                .more-header {
+                    margin-bottom: 18px;
+                }
+
+                .more-title {
+                    font-size: 1.3rem;
+                }
+
+                .more-arrow {
+                    font-size: 1.5rem;
+                }
+
+                .more-grid {
+                    gap: 18px;
+                }
+            }
+
+            .brands-section {
+                max-width: 1200px;
+                margin: 56px auto 0 auto;
+                padding: 0 24px;
+            }
+
+            .brands-header {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 32px;
+            }
+
+            .brands-title {
+                font-size: 2rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+
+            .brands-arrow {
+                font-size: 2.2rem;
+                font-weight: 400;
+                color: #222;
+                margin-top: 2px;
+            }
+
+            .brands-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 40px 32px;
+                justify-items: center;
+            }
+
+            .brand-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 200px;
+            }
+
+            .brand-card img {
+                width: 200px;
+                height: 200px;
+                object-fit: contain;
+                border-radius: 12px;
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            }
+
+            .brand-label {
+                margin-top: 18px;
+                font-size: 2rem;
+                font-weight: 400;
+                text-align: center;
+                color: #222;
+                letter-spacing: 0.2px;
+            }
+
+            @media (max-width: 1100px) {
+                .brands-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media (max-width: 800px) {
+                .brands-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .brand-card {
+                    width: 100%;
+                }
+
+                .brand-card img {
+                    width: 100%;
+                    height: auto;
+                    max-width: 220px;
+                    max-height: 220px;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .brands-section {
+                    padding: 0 6px;
+                }
+
+                .brands-header {
+                    margin-bottom: 18px;
+                }
+
+                .brands-title {
+                    font-size: 1.3rem;
+                }
+
+                .brands-arrow {
+                    font-size: 1.5rem;
+                }
+
+                .brands-grid {
+                    grid-template-columns: 1fr;
+                    gap: 18px;
+                }
+            }
+
+            .gadgets-section {
+                max-width: 1200px;
+                margin: 40px auto 0 auto;
+                padding: 0 24px;
+            }
+
+            .gadgets-header {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 32px;
+            }
+
+            .gadgets-title {
+                font-size: 2rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+
+            .gadgets-arrow {
+                font-size: 2.2rem;
+                font-weight: 400;
+                color: #222;
+                margin-top: 2px;
+            }
+
+            .gadgets-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 40px 32px;
+                justify-items: center;
+            }
+
+            .gadget-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 200px;
+            }
+
+            .gadget-card img {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 12px;
+                background: #f5f5f5;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            }
+
+            .gadget-label {
+                margin-top: 18px;
+                font-size: 2rem;
+                font-weight: 400;
+                text-align: center;
+                color: #222;
+                letter-spacing: 0.2px;
+            }
+
+            @media (max-width: 1100px) {
+                .gadgets-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media (max-width: 800px) {
+                .gadgets-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .gadget-card {
+                    width: 100%;
+                }
+
+                .gadget-card img {
+                    width: 100%;
+                    height: auto;
+                    max-width: 220px;
+                    max-height: 220px;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .gadgets-section {
+                    padding: 0 6px;
+                }
+
+                .gadgets-header {
+                    margin-bottom: 18px;
+                }
+
+                .gadgets-title {
+                    font-size: 1.3rem;
+                }
+
+                .gadgets-arrow {
+                    font-size: 1.5rem;
+                }
+
+                .gadgets-grid {
+                    grid-template-columns: 1fr;
+                    gap: 18px;
+                }
+            }
+        </style>
+    </main>
+    <div id="footer-container"></div>
+    <script src="script-categories.js"></script>
+</body>
+
+</html>
