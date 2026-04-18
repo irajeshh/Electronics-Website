@@ -302,6 +302,16 @@
 
     </main>
     <script src="script.js"></script>
+    <script>
+        // Dynamically load footer.html and insert at end of body
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                const footerDiv = document.createElement('div');
+                footerDiv.innerHTML = html;
+                document.body.appendChild(footerDiv);
+            });
+    </script>
 </body>
 
 </html>
