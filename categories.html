@@ -435,6 +435,32 @@
     </main>
     <div id="footer-container"></div>
     <script src="script-categories.js"></script>
+    <script>
+        // Add click listeners to gadget cards
+        document.addEventListener('DOMContentLoaded', function () {
+            // Gadgets
+            document.querySelectorAll('.gadget-card').forEach(function (card) {
+                card.addEventListener('click', function () {
+                    const label = card.querySelector('.gadget-label').textContent.trim();
+                    window.location.href = `categoryResults.html?category=${encodeURIComponent(label)}`;
+                });
+            });
+            // Brands
+            document.querySelectorAll('.brand-card').forEach(function (card) {
+                card.addEventListener('click', function () {
+                    const label = card.querySelector('.brand-label').textContent.trim();
+                    window.location.href = `categoryResults.html?category=${encodeURIComponent(label)}`;
+                });
+            });
+            // More
+            document.querySelectorAll('.more-card').forEach(function (card) {
+                card.addEventListener('click', function () {
+                    const label = card.querySelector('.more-label').textContent.trim();
+                    window.location.href = `categoryResults.html?category=${encodeURIComponent(label)}`;
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

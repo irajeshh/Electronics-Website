@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Results - S.R.Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/home/logo.png">
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <main>
+        <h1>Hellow</h1>
+        <h2 id="category-title"></h2>
+    </main>
+    <div id="footer-container"></div>
+    <script src="script-categories.js"></script>
+    <script>
+        // Get category from URL and display in h2
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get('category');
+        if (category) {
+            document.getElementById('category-title').textContent = category;
+        }
+    </script>
+</body>
+
+</html>
