@@ -7,22 +7,582 @@
     <title>Category Results - S.R.Tech</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/home/logo.png">
+    <style>
+        .category-results-page {
+            background: #fff;
+        }
+
+        .results-main {
+            min-height: 80vh;
+        }
+
+        .results-banner {
+            background: #1d98a6;
+            color: #fff;
+        }
+
+        .results-banner-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 22px 26px;
+        }
+
+        .results-banner h2 {
+            margin: 0;
+            font-size: 2.7rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .results-layout {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 26px;
+            display: grid;
+            grid-template-columns: 225px 1fr;
+            gap: 26px;
+            align-items: start;
+        }
+
+        .results-sidebar {
+            position: sticky;
+            top: 20px;
+            align-self: start;
+        }
+
+        .results-sidebar h3 {
+            margin: 0 0 20px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #171717;
+            letter-spacing: 0.3px;
+        }
+
+        .brand-list {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 34px;
+        }
+
+        .brand-filter {
+            width: 100%;
+            border: 1.5px solid #3a3a3a;
+            background: #fff;
+            color: #222;
+            border-radius: 4px;
+            padding: 8px 12px;
+            display: grid;
+            grid-template-columns: 20px 1fr auto;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 1.55rem;
+            font-weight: 500;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .brand-filter:hover,
+        .brand-filter.is-active {
+            background: #fff;
+            border-color: #1d98a6;
+        }
+
+        .brand-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+        }
+
+        .brand-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-icon.letter-icon {
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid #c6c6c6;
+            font-size: 1.2rem;
+            color: #1d98a6;
+            font-weight: 700;
+        }
+
+        .brand-arrow {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .sort-title {
+            margin: 0 0 14px;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #5b5b5b;
+        }
+
+        .sort-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .sort-btn {
+            border: 1.4px solid #3d3d3d;
+            background: #efefef;
+            border-radius: 4px;
+            font-size: 1.55rem;
+            font-weight: 500;
+            color: #1f1f1f;
+            padding: 8px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .sort-btn:hover,
+        .sort-btn.is-active {
+            background: #fff;
+            border-color: #1d98a6;
+        }
+
+        .sort-indicator {
+            font-size: 1.7rem;
+            line-height: 1;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(220px, 1fr));
+            gap: 18px;
+            justify-content: start;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #cbcbcb;
+            border-radius: 4px;
+            padding: 6px;
+            max-width: 260px;
+            margin: 0 auto;
+        }
+
+        .product-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-bottom: 4px;
+        }
+
+        .product-title {
+            margin: 0;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.15;
+        }
+
+        .product-brand {
+            margin: 6px 0;
+            font-size: 1.35rem;
+            color: #222;
+            font-weight: 500;
+        }
+
+        .product-price {
+            margin: 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 1.45rem;
+        }
+
+        .old-price {
+            color: #222;
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+
+        .new-price {
+            color: #1d98a6;
+            font-weight: 700;
+        }
+
+        .no-products {
+            display: none;
+            margin: 0;
+            font-size: 2rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .no-products.show {
+            display: block;
+        }
+
+        @media (max-width: 1200px) {
+            .results-layout {
+                grid-template-columns: 260px 1fr;
+                gap: 18px;
+                padding: 20px;
+            }
+
+            .products-grid {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .results-banner-inner {
+                padding: 18px 20px;
+            }
+
+            .results-banner h2 {
+                font-size: 2.2rem;
+            }
+
+            .results-layout {
+                grid-template-columns: 1fr;
+                padding: 16px;
+            }
+
+            .results-sidebar {
+                position: static;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .results-banner h2 {
+                font-size: 1.8rem;
+            }
+
+            .results-sidebar h3 {
+                font-size: 2.4rem;
+            }
+
+            .sort-title {
+                font-size: 1.9rem;
+            }
+
+            .brand-filter,
+            .sort-btn {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .product-brand,
+            .product-price {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="category-results-page">
     <div id="navbar-container"></div>
-    <main>
-        <h1>Hellow</h1>
-        <h2 id="category-title"></h2>
+
+    <main class="results-main">
+        <section class="results-banner">
+            <div class="results-banner-inner">
+                <h2 id="category-title">Headphones</h2>
+            </div>
+        </section>
+
+        <section class="results-layout">
+            <aside class="results-sidebar" aria-label="Product filters">
+                <h3>Filter</h3>
+
+                <div class="brand-list" id="brand-filter-list">
+                    <button class="brand-filter is-active" data-brand="all" type="button">
+                        <span class="brand-icon">*</span>
+                        <span>All Brands</span>
+                        <span class="brand-arrow">&#8250;</span>
+                    </button>
+                    <button class="brand-filter" data-brand="apple" type="button">
+                        <span class="brand-icon"><img src="images/categories/brands/apple cate.png" alt="Apple"></span>
+                        <span>Apple</span>
+                        <span class="brand-arrow">&#8250;</span>
+                    </button>
+                    <button class="brand-filter" data-brand="google" type="button">
+                        <span class="brand-icon letter-icon">G</span>
+                        <span>Google</span>
+                        <span class="brand-arrow">&#8250;</span>
+                    </button>
+                    <button class="brand-filter" data-brand="oneplus" type="button">
+                        <span class="brand-icon"><img src="images/categories/brands/oneplus cate.png"
+                                alt="OnePlus"></span>
+                        <span>OnePlus</span>
+                        <span class="brand-arrow">&#8250;</span>
+                    </button>
+                    <button class="brand-filter" data-brand="samsung" type="button">
+                        <span class="brand-icon"><img src="images/categories/brands/samsung cate.png"
+                                alt="Samsung"></span>
+                        <span>Samsung</span>
+                        <span class="brand-arrow">&#8250;</span>
+                    </button>
+                    <button class="brand-filter" data-brand="xiaomi" type="button">
+                        <span class="brand-icon"><img src="images/categories/brands/xiaomi cate.png"
+                                alt="Xiaomi"></span>
+                        <span>Xiaomi</span>
+                        <span class="brand-arrow">&#8250;</span>
+                    </button>
+                    <button class="brand-filter" data-brand="sony" type="button">
+                        <span class="brand-icon"><img src="images/categories/brands/sony cate.png" alt="Sony"></span>
+                        <span>Sony</span>
+                        <span class="brand-arrow">&#8250;</span>
+                    </button>
+                    <button class="brand-filter" data-brand="others" type="button">
+                        <span class="brand-icon"><img src="images/categories/brands/others cate.png"
+                                alt="Others"></span>
+                        <span>Others</span>
+                        <span class="brand-arrow">&#8250;</span>
+                    </button>
+                </div>
+
+                <h4 class="sort-title">Sort by Price</h4>
+                <div class="sort-actions" id="price-sort-actions">
+                    <button class="sort-btn" data-sort="price-asc" type="button">
+                        <span>Low to High</span>
+                        <span class="sort-indicator">&#8597;</span>
+                    </button>
+                    <button class="sort-btn" data-sort="price-desc" type="button">
+                        <span>High to Low</span>
+                        <span class="sort-indicator">&#8597;</span>
+                    </button>
+                </div>
+
+                <h4 class="sort-title">Sort by Name</h4>
+                <div class="sort-actions" id="name-sort-actions">
+                    <button class="sort-btn" data-sort="name-asc" type="button">
+                        <span>A-Z</span>
+                        <span class="sort-indicator">&#8597;</span>
+                    </button>
+                    <button class="sort-btn" data-sort="name-desc" type="button">
+                        <span>Z-A</span>
+                        <span class="sort-indicator">&#8597;</span>
+                    </button>
+                </div>
+            </aside>
+
+            <section class="results-content" aria-label="Category products">
+                <div class="products-grid" id="products-grid"></div>
+                <p class="no-products" id="no-products-message">
+                    Products for this category will be added soon.
+                </p>
+            </section>
+        </section>
     </main>
+
     <div id="footer-container"></div>
+
     <script src="script-categories.js"></script>
     <script>
-        // Get category from URL and display in h2
+        const productCatalog = {
+            Headphones: [
+                {
+                    name: 'Anker Soundcore H30i Headphones',
+                    brand: 'Anker',
+                    oldPrice: 2000,
+                    newPrice: 1800,
+                    image: 'images/products/Headphones/headphones 1.png'
+                },
+                {
+                    name: 'Apple Airpods Max Type',
+                    brand: 'Apple',
+                    oldPrice: 2000,
+                    newPrice: 1800,
+                    image: 'images/products/Headphones/headphones 2.png'
+                },
+                {
+                    name: 'JBL JR470NC Kids Wireless Headset',
+                    brand: 'JBL',
+                    oldPrice: 2000,
+                    newPrice: 1800,
+                    image: 'images/products/Headphones/headphones 3.png'
+                },
+                {
+                    name: 'Marshall Monitor 2 ANC Headphones',
+                    brand: 'Marshall',
+                    oldPrice: 2000,
+                    newPrice: 1800,
+                    image: 'images/products/Headphones/headphones 4.png'
+                },
+                {
+                    name: 'Xiaomi Air Style 4a Compact',
+                    brand: 'Xiaomi',
+                    oldPrice: 2000,
+                    newPrice: 1800,
+                    image: 'images/products/Headphones/headphones 5.png'
+                },
+                {
+                    name: 'One Plus Headphones',
+                    brand: 'One Plus',
+                    oldPrice: 2000,
+                    newPrice: 1800,
+                    image: 'images/products/Headphones/headphones 6.png'
+                },
+                {
+                    name: 'Sony QuietTune Studio Pro',
+                    brand: 'Sony',
+                    oldPrice: 2300,
+                    newPrice: 1999,
+                    image: 'images/products/Headphones/headphones 7.png'
+                },
+                {
+                    name: 'Boat Bassline Neo',
+                    brand: 'Boat',
+                    oldPrice: 1700,
+                    newPrice: 1450,
+                    image: 'images/products/Headphones/headphones 8.png'
+                },
+                {
+                    name: 'Skullcandy Fold Beat',
+                    brand: 'Skullcandy',
+                    oldPrice: 1950,
+                    newPrice: 1690,
+                    image: 'images/products/Headphones/headphones 9.png'
+                },
+                {
+                    name: 'Noise Airarc Wireless',
+                    brand: 'Noise',
+                    oldPrice: 1899,
+                    newPrice: 1599,
+                    image: 'images/products/Headphones/headphones 10.png'
+                }
+            ]
+        };
+
+        const knownBrands = ['apple', 'google', 'oneplus', 'samsung', 'xiaomi', 'sony'];
+
         const params = new URLSearchParams(window.location.search);
-        const category = params.get('category');
-        if (category) {
-            document.getElementById('category-title').textContent = category;
+        const requestedCategory = (params.get('category') || 'Headphones').trim();
+
+        const state = {
+            category: requestedCategory,
+            activeBrand: 'all',
+            activeSort: ''
+        };
+
+        const categoryTitleEl = document.getElementById('category-title');
+        const productsGridEl = document.getElementById('products-grid');
+        const emptyMessageEl = document.getElementById('no-products-message');
+
+        categoryTitleEl.textContent = state.category;
+
+        function formatPrice(value) {
+            return '₹ ' + value;
+        }
+
+        function toBrandKey(brandName) {
+            return brandName.toLowerCase().replace(/\s+/g, '');
+        }
+
+        function applyBrandFilter(items) {
+            if (state.activeBrand === 'all') {
+                return items;
+            }
+
+            if (state.activeBrand === 'others') {
+                return items.filter((item) => !knownBrands.includes(toBrandKey(item.brand)));
+            }
+
+            return items.filter((item) => toBrandKey(item.brand) === state.activeBrand);
+        }
+
+        function applySort(items) {
+            const sorted = [...items];
+
+            if (state.activeSort === 'price-asc') {
+                sorted.sort((a, b) => a.newPrice - b.newPrice);
+            } else if (state.activeSort === 'price-desc') {
+                sorted.sort((a, b) => b.newPrice - a.newPrice);
+            } else if (state.activeSort === 'name-asc') {
+                sorted.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (state.activeSort === 'name-desc') {
+                sorted.sort((a, b) => b.name.localeCompare(a.name));
+            }
+
+            return sorted;
+        }
+
+        function renderProducts() {
+            const categoryProducts = productCatalog[state.category] || [];
+            const filtered = applyBrandFilter(categoryProducts);
+            const finalList = applySort(filtered);
+
+            productsGridEl.innerHTML = '';
+
+            if (finalList.length === 0) {
+                emptyMessageEl.classList.add('show');
+                return;
+            }
+
+            emptyMessageEl.classList.remove('show');
+
+            finalList.forEach((product) => {
+                const card = document.createElement('article');
+                card.className = 'product-card';
+
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3 class="product-title">${product.name}</h3>
+                    <p class="product-brand">${product.brand}</p>
+                    <p class="product-price">
+                        <span class="old-price">${formatPrice(product.oldPrice)}</span>
+                        <span class="new-price">${formatPrice(product.newPrice)}</span>
+                    </p>
+                `;
+
+                productsGridEl.appendChild(card);
+            });
+        }
+
+        function updateActiveButtons(buttons, matcher) {
+            buttons.forEach((btn) => {
+                const shouldActivate = matcher(btn);
+                btn.classList.toggle('is-active', shouldActivate);
+            });
+        }
+
+        document.querySelectorAll('.brand-filter').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                state.activeBrand = btn.dataset.brand;
+                const brandButtons = document.querySelectorAll('.brand-filter');
+                updateActiveButtons(brandButtons, (item) => item.dataset.brand === state.activeBrand);
+                renderProducts();
+            });
+        });
+
+        document.querySelectorAll('.sort-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                state.activeSort = btn.dataset.sort;
+                const sortButtons = document.querySelectorAll('.sort-btn');
+                updateActiveButtons(sortButtons, (item) => item.dataset.sort === state.activeSort);
+                renderProducts();
+            });
+        });
+
+        renderProducts();
+        if (!productCatalog[state.category]) {
+            state.activeBrand = 'all';
+            const brandButtons = document.querySelectorAll('.brand-filter');
+            updateActiveButtons(brandButtons, (item) => item.dataset.brand === 'all');
         }
     </script>
 </body>
