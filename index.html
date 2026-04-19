@@ -58,7 +58,9 @@
                 <a href="#" class="view-all">View All &#8250;</a>
             </div>
             <div class="product-grid">
-                <article class="product-card">
+                <div class="product-card card-link-wrap">
+                    <a href="productDetails_one.html" class="card-link" tabindex="-1"
+                        aria-label="View product details"></a>
                     <img src="images/home/latest/latest home image 1.png" alt="PlayStation PSS Disc Drive">
                     <div class="product-card-content">
                         <h3 class="product-title">PlayStation PSS Disc Drive</h3>
@@ -69,8 +71,10 @@
                             <span class="product-new">₹ 1299</span>
                         </div>
                     </div>
-                </article>
-                <article class="product-card">
+                </div>
+                <div class="product-card card-link-wrap">
+                    <a href="productDetails_one.html" class="card-link" tabindex="-1"
+                        aria-label="View product details"></a>
                     <img src="images/home/latest/latest home image 2.png" alt="DJI Mini 4 Pro Drone Fly">
                     <div class="product-card-content">
                         <h3 class="product-title">DJI Mini 4 Pro Drone Fly</h3>
@@ -81,8 +85,10 @@
                             <span class="product-new">₹ 7450</span>
                         </div>
                     </div>
-                </article>
-                <article class="product-card">
+                </div>
+                <div class="product-card card-link-wrap">
+                    <a href="productDetails_one.html" class="card-link" tabindex="-1"
+                        aria-label="View product details"></a>
                     <img src="images/home/latest/latest home image 3.png" alt="OnePlus Buds Pro Lite 3">
                     <div class="product-card-content">
                         <h3 class="product-title">OnePlus Buds Pro Lite 3</h3>
@@ -93,8 +99,10 @@
                             <span class="product-new">₹ 685</span>
                         </div>
                     </div>
-                </article>
-                <article class="product-card">
+                </div>
+                <div class="product-card card-link-wrap">
+                    <a href="productDetails_one.html" class="card-link" tabindex="-1"
+                        aria-label="View product details"></a>
                     <img src="images/home/latest/latest home image 4.png" alt="Xiaomi Mi Mop X20+ Vacuum Cleaner">
                     <div class="product-card-content">
                         <h3 class="product-title">Xiaomi Mi Mop X20+ Vacuum Cleaner</h3>
@@ -105,7 +113,27 @@
                             <span class="product-new">₹ 10,099</span>
                         </div>
                     </div>
-                </article>
+                </div>
+                <style>
+                    .card-link-wrap {
+                        position: relative;
+                    }
+
+                    .card-link {
+                        position: absolute;
+                        inset: 0;
+                        z-index: 2;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        text-decoration: none;
+                        color: inherit;
+                    }
+
+                    .card-link:focus {
+                        outline: 2px solid #1ca98e;
+                    }
+                </style>
             </div>
         </section>
         <section class="promo-posters">
