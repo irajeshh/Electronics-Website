@@ -146,22 +146,22 @@
             }
 
             .more-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 40px 32px;
-                justify-items: center;
+                display: flex;
+                gap: 64px;
+                justify-content: flex-start;
+                align-items: flex-start;
             }
 
             .more-card {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                width: 240px;
+                width: 260px;
             }
 
             .more-card img {
-                width: 240px;
-                height: 240px;
+                width: 260px;
+                height: 260px;
                 object-fit: contain;
                 border-radius: 12px;
                 background: #fff;
@@ -169,8 +169,8 @@
             }
 
             .more-label {
-                margin-top: 18px;
-                font-size: 2rem;
+                margin-top: 24px;
+                font-size: 2.2rem;
                 font-weight: 400;
                 text-align: center;
                 color: #222;
@@ -179,13 +179,15 @@
 
             @media (max-width: 1100px) {
                 .more-grid {
-                    grid-template-columns: repeat(2, 1fr);
+                    gap: 32px;
                 }
             }
 
             @media (max-width: 800px) {
                 .more-grid {
-                    grid-template-columns: 1fr;
+                    flex-direction: column;
+                    gap: 24px;
+                    align-items: center;
                 }
 
                 .more-card {
@@ -195,8 +197,8 @@
                 .more-card img {
                     width: 100%;
                     height: auto;
-                    max-width: 260px;
-                    max-height: 260px;
+                    max-width: 320px;
+                    max-height: 320px;
                 }
             }
 
@@ -217,8 +219,8 @@
                     font-size: 1.5rem;
                 }
 
-                .more-grid {
-                    gap: 18px;
+                .more-label {
+                    font-size: 1.3rem;
                 }
             }
 
