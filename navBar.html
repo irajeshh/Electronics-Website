@@ -67,9 +67,29 @@
     .icon-btn {
         background: none;
         border: none;
-        font-size: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        color: #222;
         cursor: pointer;
         margin-left: 4px;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .icon-btn:hover,
+    .icon-btn:focus {
+        background: rgba(28, 169, 142, 0.1);
+        color: #1ca98e;
+        outline: none;
+    }
+
+    .icon-btn svg {
+        width: 22px;
+        height: 22px;
+        display: block;
     }
 
     @media (max-width: 900px) {
@@ -108,7 +128,20 @@
     </nav>
     <div class="header-actions">
         <input type="text" class="search-bar" placeholder="Search">
-        <a href="cart.html" class="icon-btn" title="Cart" aria-label="Go to cart">&#128722;</a>
-        <button class="icon-btn" title="Account">&#128100;</button>
+        <a href="cart.html" class="icon-btn" title="Cart" aria-label="Go to cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+        </a>
+        <button class="icon-btn" title="Account" aria-label="Account">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </button>
     </div>
 </header>
