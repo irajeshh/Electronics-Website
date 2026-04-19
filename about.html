@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - S.R.Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/home/logo.png">
+    <style>
+        .about-story {
+            max-width: 1180px;
+            margin: 72px auto 56px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .about-story-image {
+            flex: 1 1 420px;
+            min-width: 320px;
+            position: relative;
+            z-index: 0;
+        }
+
+        .about-story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .about-story-content {
+            flex: 1 1 420px;
+            background: rgba(226, 245, 249, 0.95);
+            padding: 44px 42px;
+            margin-right: -120px;
+            z-index: 1;
+        }
+
+        .about-story-content.overlap-left {
+            margin-right: 0;
+            margin-left: -120px;
+        }
+
+        .about-story-content h2 {
+            margin: 0 0 24px;
+            font-size: 2.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: inline-block;
+            border-bottom: 4px solid #222;
+            padding-bottom: 8px;
+        }
+
+        .about-story-content p {
+            margin: 0 0 22px;
+            font-size: 1.2rem;
+            line-height: 1.85;
+            color: #1f1f1f;
+        }
+
+        .about-story-content .about-quote {
+            margin-top: 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #2a2a2a;
+        }
+
+        @media (max-width: 900px) {
+            .about-story {
+                margin: 48px auto 40px;
+                gap: 24px;
+            }
+
+            .about-story-content {
+                padding: 32px 28px;
+                margin-right: -80px;
+            }
+
+            .about-story-content.overlap-left {
+                margin-right: 0;
+                margin-left: -80px;
+            }
+
+            .about-story-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .about-story-content {
+                margin-right: 0;
+                width: 100%;
+            }
+
+            .about-story-content.overlap-left {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .about-story {
+                padding: 0 16px;
+            }
+
+            .about-story-content {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <main>
+        <section class="about-story">
+            <div class="about-story-content">
+                <h2>MISSION</h2>
+                <p>Our mission at SR TECH is to provide our customers with the best possible experience when it comes to
+                    buying electronic goods. We are committed to offering high-quality products, exceptional customer
+                    service, and competitive pricing. Our goal is to be the go-to destination for electronic devices in
+                    the Tamilnadu.</p>
+            </div>
+            <div class="about-story-image">
+                <img src="images/about/2.png" alt="SR TECH mission">
+            </div>
+        </section>
+
+        <section class="about-story">
+            <div class="about-story-image">
+                <img src="images/about/3.png" alt="SR TECH values">
+            </div>
+            <div class="about-story-content overlap-left">
+                <h2>VALUES</h2>
+                <p>At SR TECH, our values center on trust, innovation, and customer focus. We build each experience
+                    around transparency, quality, and community support to deliver technology solutions that enhance
+                    everyday life in Tamilnadu.</p>
+            </div>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+        fetch('navBar.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
