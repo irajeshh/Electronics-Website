@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - S.R.Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/home/logo.png">
+    <style>
+        /* More to Buy Section */
+        .more-to-buy-section {
+            max-width: 1500px;
+            margin: 48px auto 0 auto;
+            padding: 0 0 48px 0;
+        }
+
+        .more-to-buy-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #181818;
+            margin-bottom: 32px;
+            margin-left: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .more-to-buy-list {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .more-to-buy-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: none;
+            width: 320px;
+            min-width: 280px;
+            max-width: 340px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: box-shadow 0.18s;
+        }
+
+        .more-to-buy-card:hover {
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .more-to-buy-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #f5f5f5;
+        }
+
+        .more-to-buy-content {
+            padding: 18px 16px 12px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .more-to-buy-title-main {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: #181818;
+            margin-bottom: 2px;
+        }
+
+        .more-to-buy-brand {
+            font-size: 1.1rem;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .more-to-buy-prices {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .more-to-buy-old-price {
+            font-size: 1.1rem;
+            color: #222;
+            text-decoration: line-through;
+        }
+
+        .more-to-buy-new-price {
+            font-size: 1.25rem;
+            color: #18b6c3;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1200px) {
+            .more-to-buy-list {
+                gap: 18px;
+            }
+
+            .more-to-buy-card {
+                width: 44vw;
+                min-width: 180px;
+                max-width: 98vw;
+            }
+
+            .more-to-buy-img {
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .more-to-buy-title {
+                font-size: 1.1rem;
+                margin-bottom: 14px;
+            }
+
+            .more-to-buy-list {
+                gap: 10px;
+            }
+
+            .more-to-buy-card {
+                width: 98vw;
+                min-width: 0;
+                max-width: 100vw;
+            }
+
+            .more-to-buy-img {
+                height: 90px;
+            }
+
+            .more-to-buy-content {
+                padding: 10px 8px 8px 8px;
+            }
+
+            .more-to-buy-title-main {
+                font-size: 1rem;
+            }
+        }
+
+        .product-details-header {
+            background: #1796a3;
+            color: #fff;
+            font-size: 2.3rem;
+            font-weight: 600;
+            padding: 32px 0 24px 0;
+            text-align: left;
+            padding-left: 120px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-details-content {
+            display: flex;
+            gap: 56px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 0 0 0;
+            align-items: flex-start;
+        }
+
+        .product-images {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .main-image img {
+            width: 540px;
+            height: 540px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #f5f5f5;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            display: block;
+        }
+
+        .side-images {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-left: 18px;
+        }
+
+        .side-images img {
+            width: 160px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #f5f5f5;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .product-info {
+            min-width: 420px;
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .product-brand {
+            font-size: 1.3rem;
+            color: #222;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .product-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #181818;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #181818;
+            margin-bottom: 8px;
+        }
+
+        .product-meta {
+            font-size: 1.1rem;
+            color: #222;
+            font-weight: 500;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .product-meta .divider {
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        .product-ref {
+            font-size: 1.1rem;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .product-cart-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin: 18px 0 8px 0;
+        }
+
+        .qty-btn {
+            width: 38px;
+            height: 38px;
+            border: none;
+            background: #e6e6e6;
+            color: #222;
+            font-size: 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.18s;
+        }
+
+        .qty-btn:hover {
+            background: #1796a3;
+            color: #fff;
+        }
+
+        .qty-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            width: 32px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .add-cart-btn {
+            background: #1796a3;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 10px 32px;
+            cursor: pointer;
+            transition: background 0.18s;
+        }
+
+        .add-cart-btn:hover {
+            background: #127a85;
+        }
+
+        .product-shipping,
+        .product-delivery {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            color: #181818;
+            gap: 10px;
+            margin-bottom: 2px;
+        }
+
+        .product-policy {
+            margin-top: 8px;
+        }
+
+        .policy-link {
+            color: #00c800;
+            font-size: 1.2rem;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .product-features {
+            max-width: 900px;
+            margin: 32px auto 0 auto;
+            padding: 0 24px 32px 24px;
+        }
+
+        .product-features ul {
+            font-size: 1.35rem;
+            color: #181818;
+            line-height: 1.7;
+            margin: 0;
+            padding-left: 32px;
+        }
+
+        .product-features li {
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 1200px) {
+            .product-details-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 32px;
+            }
+
+            .product-images {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .main-image img {
+                width: 100vw;
+                max-width: 540px;
+                height: auto;
+            }
+
+            .side-images {
+                flex-direction: row;
+                margin-left: 0;
+                gap: 12px;
+            }
+
+            .side-images img {
+                width: 120px;
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .product-details-header {
+                font-size: 1.2rem;
+                padding-left: 18px;
+                padding-top: 18px;
+                padding-bottom: 12px;
+            }
+
+            .product-details-content {
+                padding: 18px 0 0 0;
+                gap: 18px;
+            }
+
+            .main-image img {
+                max-width: 98vw;
+                height: auto;
+            }
+
+            .side-images img {
+                width: 80px;
+                height: 60px;
+            }
+
+            .product-info {
+                min-width: 0;
+                max-width: 100vw;
+                padding: 0 8px;
+            }
+
+            .product-title,
+            .product-price {
+                font-size: 1.2rem;
+            }
+
+            .add-cart-btn {
+                font-size: 1rem;
+                padding: 8px 18px;
+            }
+
+            .qty-btn,
+            .qty-value {
+                font-size: 1rem;
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <main>
+        <section class="product-details">
+            <div class="product-details-header">
+                Ajaaz Wireless Keyboard
+            </div>
+            <div class="product-details-content">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img src="images/products/details/two/1.png" alt="Ajaaz Wireless Keyboard">
+                    </div>
+                    <div class="side-images">
+                        <img src="images/products/details/two/2.png" alt="Ajaaz Keyboard Side View">
+                        <img src="images/products/details/two/3.png" alt="Ajaaz Keyboard Layout">
+                        <img src="images/products/details/two/4.png" alt="Ajaaz Keyboard Angle View">
+                        <img src="images/products/details/two/5.png" alt="Ajaaz Keyboard with Accessories">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">Anker</div>
+                    <div class="product-title">Ajaaz Wireless Keyboard</div>
+                    <div class="product-price">₹ 1702</div>
+                    <div class="product-meta">
+                        <span>TAX INCLUDED</span>
+                        <span class="divider">|</span>
+                        <span>SHIPPING CALCULATED AT CHECKOUT</span>
+                    </div>
+                    <div class="product-ref">Reference ID:124578482</div>
+                    <div class="product-cart-row">
+                        <button class="qty-btn" aria-label="Decrease quantity">-</button>
+                        <span class="qty-value">1</span>
+                        <button class="qty-btn" aria-label="Increase quantity">+</button>
+                        <button class="add-cart-btn">Add to Cart</button>
+                    </div>
+                    <div class="product-shipping">
+                        <span class="icon">🚚</span>
+                        Free shipping on all orders over 450 rupees
+                    </div>
+                    <div class="product-delivery">
+                        <span class="icon">⏰</span>
+                        Delivery in 3-4 working days shipping & return
+                    </div>
+                    <div class="product-policy">
+                        <a href="#" class="policy-link">Free delivery and return policies</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="product-features">
+            <ul>
+                <li>Ultra-slim wireless keyboard with a compact, elegant design.</li>
+                <li>Up to 36 hours of continuous battery life on a single charge.</li>
+                <li>Quick 10-minute charge delivers up to 2 hours of use.</li>
+                <li>Responsive scissor-switch keys for quiet typing and tactile feedback.</li>
+                <li>Multi-device pairing support for seamless switching between devices.</li>
+                <li>Rechargeable USB-C connection for fast and convenient charging.</li>
+                <li>Durable aluminum frame with a premium matte finish.</li>
+                <li>Dedicated media keys and shortcut controls for easy productivity.</li>
+                <li>Compatible with Windows, macOS, Android, and iOS devices.</li>
+                <li>Anti-slip rubber feet keep the keyboard stable on any desk surface.</li>
+            </ul>
+        </section>
+        <section class="more-to-buy-section">
+            <div class="more-to-buy-title">MORE TO BUY</div>
+            <div class="more-to-buy-list">
+                <div class="more-to-buy-card">
+                    <img class="more-to-buy-img" src="images/products/details/1.png" alt="Anker Soundcore H30i Headphones">
+                    <div class="more-to-buy-content">
+                        <div class="more-to-buy-title-main">Anker Soundcore H30i Headphones</div>
+                        <div class="more-to-buy-brand">Anker</div>
+                        <div class="more-to-buy-prices">
+                            <span class="more-to-buy-old-price">₹ 2000</span>
+                            <span class="more-to-buy-new-price">₹ 1800</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-to-buy-card">
+                    <img class="more-to-buy-img" src="images/products/details/2.png" alt="Apple Airpods Max Type">
+                    <div class="more-to-buy-content">
+                        <div class="more-to-buy-title-main">Apple Airpods Max Type</div>
+                        <div class="more-to-buy-brand">Apple</div>
+                        <div class="more-to-buy-prices">
+                            <span class="more-to-buy-old-price">₹ 2000</span>
+                            <span class="more-to-buy-new-price">₹ 1800</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-to-buy-card">
+                    <img class="more-to-buy-img" src="images/products/details/3.png" alt="JBL JR470NC Kids Wireless Headset">
+                    <div class="more-to-buy-content">
+                        <div class="more-to-buy-title-main">JBL JR470NC Kids Wireless Headset</div>
+                        <div class="more-to-buy-brand">JBL</div>
+                        <div class="more-to-buy-prices">
+                            <span class="more-to-buy-old-price">₹ 2000</span>
+                            <span class="more-to-buy-new-price">₹ 1800</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-to-buy-card">
+                    <img class="more-to-buy-img" src="images/products/details/4.png" alt="JBL JR470NC Kids Wireless Headset">
+                    <div class="more-to-buy-content">
+                        <div class="more-to-buy-title-main">JBL JR470NC Kids Wireless Headset</div>
+                        <div class="more-to-buy-brand">JBL</div>
+                        <div class="more-to-buy-prices">
+                            <span class="more-to-buy-old-price">₹ 2000</span>
+                            <span class="more-to-buy-new-price">₹ 1800</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+
+    <script>
+        fetch('navBar.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
